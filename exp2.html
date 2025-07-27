@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>University Admission Inquiry</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    fieldset {
+      border: none;
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin: 8px 0 4px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .inline-group {
+      display: flex;
+      gap: 10px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+    progress {
+      width: 100%;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>University Admission Inquiry</h1>
+
+  <form action="/serverlogic" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <legend>Personal Information</legend>
+      
+      <label for="fullname">Full Name:</label>
+      <input type="text" id="fullname" name="fullname" required maxlength="100" placeholder="Enter your full name" autofocus>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required placeholder="Enter a valid email">
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="10-digit number">
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required min="1990-01-01" max="2020-12-31">
+
+      <label for="website">Portfolio URL:</label>
+      <input type="url" id="website" name="website" required placeholder="https://yourportfolio.com">
+
+      <label for="photo">Upload Photo:</label>
+      <input type="file" id="photo" name="photo" accept="image/*" required>
+
+      <label for="password">Create Password:</label>
+      <input type="password" id="password" name="password" required minlength="6" placeholder="Min 6 characters">
+    </fieldset>
+
+    <fieldset>
+      <legend>Course and Preferences</legend>
+
+      <label for="course">Select Course:</label>
+      <select id="course" name="course" required>
+        <option value="">-- Select a Course --</option>
+        <option value="btech">B.Tech</option>
+        <option value="bsc">B.Sc</option>
+        <option value="bcom">B.Com</option>
+        <option value="ba">B.A</option>
+        <option value="bca">BCA</option>
+      </select>
+
+      <label>Preferred Shift:</label>
+      <div class="inline-group">
+        <input type="radio" id="shift-morning" name="shift" value="morning" required>
+        <label for="shift-morning">Morning</label>
+        <input type="radio" id="shift-evening" name="shift" value="evening" required>
+        <label for="shift-evening">Evening</label>
+      </div>
+
+      <label>Subjects Interested In:</label>
+      <div class="inline-group">
+        <input type="checkbox" id="cs" name="subject_cs" value="Computer Science">
+        <label for="cs">Computer Science</label>
+        <input type="checkbox" id="math" name="subject_math" value="Mathematics">
+        <label for="math">Mathematics</label>
+        <input type="checkbox" id="eng" name="subject_eng" value="English">
+        <label for="eng">English</label>
+        <input type="checkbox" id="phy" name="subject_phy" value="Physics">
+        <label for="phy">Physics</label>
+      </div>
+
+      <label for="rank">Entrance Exam Rank:</label>
+      <input type="number" id="rank" name="rank" required min="1" max="100000" placeholder="Enter your rank">
+
+      <label for="comments">Any Additional Comments:</label>
+      <textarea id="comments" name="comments" rows="4" placeholder="Write something...">Looking forward to join the university.</textarea>
+
+      <label for="search">Search University Info:</label>
+      <input type="search" id="search" name="search" placeholder="Search courses or info" required>
+    </fieldset>
+
+    <fieldset>
+      <legend>Application Progress</legend>
+      <label for="progress">Progress:</label>
+      <progress id="progress" value="70" max="100">70%</progress>
+    </fieldset>
+
+    <div class="buttons">
+      <input type="submit" value="Submit Application">
+      <input type="reset" value="Reset Form">
+    </div>
+  </form>
+
+</body>
+</html>
