@@ -1,0 +1,139 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header */
+.site-header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.site-title {
+  font-size: 2rem;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+}
+
+.search-form input[type="search"] {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  width: 1100px;
+}
+
+.search-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+}
+
+/* Banner */
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Welcome Section */
+.welcome {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #e9ecef;
+}
+
+.gallery-item {
+  width: 30%;
+  margin: 10px;
+}
+
+.gallery-thumb {
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0.9;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.gallery-thumb:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Content Section */
+.content-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 40px 20px;
+  background-color: #fff;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.content-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.content-section img {
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.content-text {
+  width: 50%;
+  padding: 20px;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #2c3e50;
+  color: white;
+  margin-top: 20px;
+}
