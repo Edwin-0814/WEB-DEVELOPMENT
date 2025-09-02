@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pawfect Training - Dog Training Center</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 30px;
+      z-index: 1000;
+    }
+
+    nav img {
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    nav h1 {
+      color: #fff;
+      margin-left: 10px;
+      font-size: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #ff9800;
+      color: #000;
+    }
+
+    /* Landing Page */
+    .landing {
+      height: 100vh;
+      background: url('img2.webp') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      padding-top: 70px;
+      position: relative;
+    }
+
+    .landing h2 {
+      font-size: 48px;
+      text-shadow: 2px 2px 8px black;
+    }
+
+    .landing p {
+      font-size: 20px;
+      margin-top: 10px;
+      background: rgba(0,0,0,0.5);
+      padding: 8px 15px;
+      border-radius: 10px;
+    }
+
+    /* Login Form */
+    .login-box {
+      position: absolute;
+      bottom: 50px;
+      right: 50px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      width: 300px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .login-box h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .login-box input[type="text"]:focus,
+    .login-box input[type="password"]:focus {
+      border-color: #ff9800;
+      box-shadow: 0 0 10px #ff9800;
+      outline: none;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background: #ff9800;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-box button:hover {
+      background: #e68900;
+    }
+
+    /* Success Box */
+    .success-box {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      text-align: center;
+      z-index: 2000;
+    }
+
+    .success-box h2 {
+      color: green;
+      margin-bottom: 15px;
+    }
+
+    .success-box button {
+      background: #ff9800;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .success-box button:hover {
+      background: #e68900;
+    }
+
+    @media (max-width: 768px) {
+      .login-box {
+        position: relative;
+        margin: 20px auto;
+        right: 0;
+        bottom: 0;
+      }
+
+      .landing h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div style="display:flex; align-items:center;">
+      <img src="img1.webp" alt="Logo">
+      <h1>Pawfect Training</h1>
+    </div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Programs</a></li>
+      <li><a href="#">Trainers</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Landing Page -->
+  <div class="landing">
+    <h2>Welcome to Pawfect Training Center</h2>
+    <p>Where every dog learns to shine 🐾</p>
+  </div>
+
+  <!-- Login Form -->
+  <div class="login-box">
+    <h3>Member Login</h3>
+    <form onsubmit="showSuccess(event)">
+      <input type="text" placeholder="Enter Username" required>
+      <input type="password" placeholder="Enter Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <!-- Success Box -->
+  <div class="success-box" id="successBox">
+    <h2>✅ Login Successful</h2>
+    <p>Welcome back to Pawfect Training!</p>
+    <button onclick="closeSuccess()">Close</button>
+  </div>
+
+  <script>
+    function showSuccess(event) {
+      event.preventDefault(); // prevent actual form submit
+      document.getElementById("successBox").style.display = "block";
+    }
+
+    function closeSuccess() {
+      document.getElementById("successBox").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
