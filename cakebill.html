@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cake Order Bill</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url("cake.webp") no-repeat center center fixed;
+      background-size: cover;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      font-family: 'Georgia', serif;
+      color: black;
+      margin-bottom: 20px;
+    }
+
+    .box {
+      background: rgba(255,255,255,0.95);
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      width: 450px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background: #e74c3c;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #c0392b;
+    }
+
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #2c3e50;
+      text-align: center;
+    }
+
+    .cakes {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .cakes img {
+      width: 120px;
+      border-radius: 10px;
+      margin: 5px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🍰 Cake Shop - Order Your Cakes</h2>
+  
+  <div class="cakes">
+    <img src="C:\Users\edwin\OneDrive\Documents\webtech\exp5\types-of-cake-lava-cakes.webp" alt="Rainbow Cake">
+    <img src="C:\Users\edwin\OneDrive\Documents\webtech\exp5\types-of-cake-orange-chiffon-cake-1650555385.avif" alt="Chocolate Cake">
+    <img src="C:\Users\edwin\OneDrive\Documents\webtech\exp5\types-of-cake-red-velvet-cake.webp" alt="Red Velvet Cake">
+    <img src="C:\Users\edwin\OneDrive\Documents\webtech\exp5\types-of-cake-strawberry-bundt-cake.webp" alt="Black Forest Cake">
+  </div>
+
+  <div class="box">
+    <input type="number" id="rainbow" placeholder="Rainbow Cake (300 Rs)" oninput="updatePreview()"> 
+    <input type="number" id="chocolate" placeholder="Chocolate Cake (200 Rs)" oninput="updatePreview()"> 
+    <input type="number" id="redvelvet" placeholder="Red Velvet Cake (250 Rs)" oninput="updatePreview()"> 
+    <input type="number" id="blackforest" placeholder="Black Forest Cake (350 Rs)" oninput="updatePreview()"> 
+    
+    <button onclick="calculateBill()">Place Order</button>
+    <div class="result" id="cakeResult">Total Price: Rs. 0</div>
+  </div>
+
+  <script>
+    function calculateBill() {
+      let rainbow = parseInt(document.getElementById("rainbow").value) || 0;
+      let chocolate = parseInt(document.getElementById("chocolate").value) || 0;
+      let redvelvet = parseInt(document.getElementById("redvelvet").value) || 0;
+      let blackforest = parseInt(document.getElementById("blackforest").value) || 0;
+
+      let total = (rainbow * 300) + (chocolate * 200) + (redvelvet * 250) + (blackforest * 350);
+
+      document.getElementById("cakeResult").innerHTML = 
+        `🍰 Total Price: Rs. ${total}`;
+    }
+
+    function updatePreview() {
+      let rainbow = parseInt(document.getElementById("rainbow").value) || 0;
+      let chocolate = parseInt(document.getElementById("chocolate").value) || 0;
+      let redvelvet = parseInt(document.getElementById("redvelvet").value) || 0;
+      let blackforest = parseInt(document.getElementById("blackforest").value) || 0;
+
+      let total = (rainbow * 300) + (chocolate * 200) + (redvelvet * 250) + (blackforest * 350);
+
+      document.getElementById("cakeResult").innerHTML = 
+        `📝 Current Total: Rs. ${total}`;
+    }
+  </script>
+
+</body>
+</html>
